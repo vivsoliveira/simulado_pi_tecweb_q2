@@ -51,7 +51,7 @@ def tag_details(request, tag_id):
 def fun_facts(request):
     if request.method == 'POST':
         descricao = request.POST.get('descricao')
-        fact = Fact.objects.filter(descricao=descricao)
+        fact = Fact.objects.create(descricao=descricao)
         fact.save()
         return redirect('fun_facts')
     else:
