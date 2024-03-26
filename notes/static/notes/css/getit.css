@@ -251,7 +251,7 @@ body {
   font-size: 12px;
   background-color: #f7d736;
   border-radius: 0.4rem;
-
+  
 }
 .card.card-color-1 {
   background-color: #ead3a7 !important;
@@ -368,4 +368,10 @@ th {
   color: black;
   text-decoration: none;
 }
-
+.titulo_fun_fact{
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin-top: 1rem;
+  font-family: 'Permanent Marker', cursive;
+}

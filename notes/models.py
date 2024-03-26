@@ -8,6 +8,10 @@ class Tag(models.Model):
         name = self.name
         return name
 
+class Fact(models.Model):
+    descricao = models.TextField()
+    curtidas = models.IntegerField(default=0)
+    
 class Note(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200)

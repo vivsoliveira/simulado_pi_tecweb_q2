@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import Note
 from .models import Tag
+from .models import Fact
 
-def index(request):
+def index(request, name='index.html'):
     if request.method == 'POST':
         title = request.POST.get('titulo')
         content = request.POST.get('detalhes')
@@ -19,7 +20,7 @@ def index(request):
         return redirect('index')
     else:
         all_notes = Note.objects.all()
-        return render(request, 'notes/index.html', {'notes': all_notes})
+        return render(request, f'notes/{name}', {'notes': all_notes})
 
 def delete(request, note_id):
     note = Note.objects.get(id=note_id)
@@ -46,3 +47,16 @@ def tag_details(request, tag_id):
     tag = Tag.objects.get(id=tag_id)
     notes = Note.objects.filter(tag=tag)
     return render(request, 'notes/tag_details.html', {'notes': notes, 'tag': tag})
+
+def fun_facts(request):
+    return render(request, 'notes/fun_facts.html')
+# def fun_fact(request):
+#     if request.method == 'POST':
+#         descricao = request.POST.get('descricao')
+#         curtida = request.POST.get('curtida')
+#         fun_fact = Fact.objects.create(descricao=descricao, curtidas=curtida)   
+#         fun_fact.save()
+#         return redirect('index')
+#     else:
+#         all_facts = Fact.objects.all()
+#         return render(request, 'notes/fun_fact.html', {'facts': all_facts})
