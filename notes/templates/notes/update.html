@@ -1,0 +1,18 @@
+{% extends "notes/base.html" %} <!-- para indicar que queremos usar o base.html como base -->
+{% load static %}
+
+<!-- entre block content e endblock, o codigo entra em base -->
+{% block content %}
+<main class="container">
+  <form method = "post" class="form-card">
+    {% csrf_token %}
+    <input class="form-card-title" name="title" id="title" placeholder="Título" value="{{ note.title }}">
+    <input class="input" name="content" id="content" placeholder="Conteúdo" value="{{ note.content }}">
+    <div class="opcoes">
+      <button class="btn_cancela" type="submit">Cancelar</button>
+      <button class="btn_atualiza" type="submit">Atualizar</button>
+    </div>
+  </form>
+</main>
+
+{% endblock %}

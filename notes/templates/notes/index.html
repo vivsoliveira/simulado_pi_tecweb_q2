@@ -1,0 +1,51 @@
+{% extends "notes/base.html" %} <!-- para indicar que queremos usar o base.html como base -->
+{% load static %}
+
+<!-- entre block content e endblock, o codigo entra em base -->
+{% block content %}
+<main class="container">
+  <form method = "post" class="form-card">
+    {% csrf_token %}
+    <input
+      class="form-card-title"
+      type="text"
+      name="titulo"
+      placeholder="Titulo"
+    />
+    <input
+      class="autoresize"
+      name="detalhes"
+      placeholder="Digite o conteudo..."
+    ></input>
+    <input
+      class="autoresize"
+      name="tag"
+      placeholder="Adicione uma Tag"
+    ></input>
+    <button class="btn" type="submit">Criar</button>
+    <a href="{% url 'list' %}">
+      <p class="botao_tags"> Lista de Tags</p>
+    </a>
+
+  </form>
+  <div class="card-container">
+    {% for note in notes %}
+      <div class="card">
+        {% if note.tag %}
+        <p class="card-tag">{{ note.tag }}</p>
+        {% endif %}
+        <a href="delete/{{ note.id }}">
+          <img class="deletar" src="{% static 'notes/img/lixo.png' %}">
+        </a>
+        <a href="update/{{ note.id }}">
+          <img class="editar" src="{% static 'notes/img/lapis.png' %}">
+        </a>
+        <h3 class="card-title">{{ note.title }}</h3>
+        <div class="card-content">
+          <p>{{ note.content }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</main>
+{% endblock %}
