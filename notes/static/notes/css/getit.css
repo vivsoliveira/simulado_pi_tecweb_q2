@@ -21,7 +21,7 @@ Algumas informações úteis e dicas:
       #abe9c1
   - Sombra: https://codepen.io/sdthornton/pen/wBZdXq
  */
- .logo {
+.logo {
   width: 90px;
   height: 50px;
   margin-left: 0.3rem;
@@ -256,64 +256,49 @@ body {
 .card.card-color-1 {
   background-color: #ead3a7 !important;
 }
-
 .card.card-color-2 {
   background-color: #9de0f5 !important;
 }
-
 .card.card-color-3 {
   background-color: #ef89ba !important;
 }
-
 .card.card-color-4 {
   background-color: #fae890 !important;
 }
-
 .card.card-color-5 {
   background-color: #abe9c1 !important;
 }
-
 .card.card-rotation-1 {
   transform: rotate(-4deg);
 }
-
 .card.card-rotation-2 {
   transform: rotate(-3deg);
 }
-
 .card.card-rotation-3 {
   transform: rotate(-2deg);
 }
-
 .card.card-rotation-4 {
   transform: rotate(-1deg);
   margin-top: 1rem;
 }
-
 .card.card-rotation-5 {
   transform: rotate(0deg);
 }
-
 .card.card-rotation-6 {
   transform: rotate(1deg);
 }
-
 .card.card-rotation-7 {
   transform: rotate(2deg);
 }
-
 .card.card-rotation-8 {
   transform: rotate(3deg);
 }
-
 .card.card-rotation-9 {
   transform: rotate(4deg);
 }
-
 .card.card-rotation-10 {
   transform: rotate(5deg);
 }
-
 .card.card-rotation-11 {
   transform: rotate(6deg);
 }
@@ -372,6 +357,41 @@ th {
   font-size: 1.5rem;
   font-weight: 700;
   color: #2c2c2c;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   font-family: 'Permanent Marker', cursive;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.2rem;
+}
+.bloco_facts{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.30), 0 10px 12px rgba(0,0,0,0.22);
+}
+.descricao{
+  font-weight: 500;
+  color: #2c2c2c;
+  margin-top: 0.5rem;
+  border: black;
+  border-radius: 2%;
+  width: 80%;
+  font-size: 17px;
+  margin-bottom: 0.5rem;
+  padding-right: 5rem;
+  padding-top: 0.7rem;
+}
+.btn_fun_facts{
+  margin-left: 0.8rem;
+  display: block;
+  padding: 5px 8px;
+  width: 50%;
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.6);
+  color: black;
+  transition: background-color 0.3s;
 }

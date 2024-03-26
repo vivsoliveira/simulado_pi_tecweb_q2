@@ -12,6 +12,11 @@ class Fact(models.Model):
     descricao = models.TextField()
     curtidas = models.IntegerField(default=0)
     
+    def __str__(self):
+        descricao = self.descricao
+        curtidas = self.curtidas
+        return f'{descricao}. {curtidas}'
+
 class Note(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200)

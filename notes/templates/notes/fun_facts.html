@@ -1,10 +1,39 @@
 {% extends "notes/base.html" %}
 {% load static %}
-
 {% block content %}
 <main class="container">
-    <div>
-        <h2 class="titulo_fun_fact">Adicione um Fun Fact!</h2>
+    <form method = "post">
+        {% csrf_token %}
+        <div>
+            <h2 class="titulo_fun_fact">Adicione um Fun Fact!</h2>
+        </div>
+        <div class="bloco_facts">
+            <p style="margin-right: 0.8rem;">Descrição</p>
+            <textarea
+                class="descricao"
+                type="text"
+                name="descricao"
+                placeholder="descricao">
+            </textarea>
+            <button class="btn_fun_facts" type="submit">Submit</button>
+        </div>
+    </form>
+    <div class="card-container">
+        {% if fun_facts %}
+            {% for fact in fun_facts %}
+            <div class="card">
+                <!-- <a href="update/{{ note.id }}">
+                <img class="editar" src="{% static 'notes/img/lapis.png' %}">
+                </a> -->
+                <!-- <h3 class="card-title">{{ note.title }}</h3> -->
+                <div class="card-content">
+                <p>{{fact.descricao}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p class="no-facts">Nenhum Fun Fact cadastrado</p>
+        {% endif %}
     </div>
 </main>
 {% endblock %}

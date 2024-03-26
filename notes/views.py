@@ -49,14 +49,11 @@ def tag_details(request, tag_id):
     return render(request, 'notes/tag_details.html', {'notes': notes, 'tag': tag})
 
 def fun_facts(request):
-    return render(request, 'notes/fun_facts.html')
-# def fun_fact(request):
-#     if request.method == 'POST':
-#         descricao = request.POST.get('descricao')
-#         curtida = request.POST.get('curtida')
-#         fun_fact = Fact.objects.create(descricao=descricao, curtidas=curtida)   
-#         fun_fact.save()
-#         return redirect('index')
-#     else:
-#         all_facts = Fact.objects.all()
-#         return render(request, 'notes/fun_fact.html', {'facts': all_facts})
+    if request.method == 'POST':
+        descricao = request.POST.get('descricao')
+        fact = Fact.objects.filter(descricao=descricao)
+        fact.save()
+        return redirect('fun_facts')
+    else:
+        fun_facts = Fact.objects.all()
+        return render(request, 'notes/fun_facts.html', {'fun_facts': fun_facts})
