@@ -403,5 +403,18 @@ th {
 }
 .itens{
   margin: 0.3rem;
-  font-size: 10px;
+  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+}
+.botao_curtir{
+  color: blue;
+  border: none;
+  background-color: none;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 18px;
+  margin-left: 0.5rem;
+  box-shadow: none;
+  text-shadow: none;
 }

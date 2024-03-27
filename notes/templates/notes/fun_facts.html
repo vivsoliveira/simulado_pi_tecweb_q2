@@ -10,29 +10,28 @@
         <div class="bloco_facts">
             <p style="margin-right: 0.8rem;">Descrição</p>
             <textarea
-                class="descricao"
-                type="text"
-                name="descricao"
-                placeholder="descricao">
+            class="descricao"
+            type="text"
+            name="descricao"
+            placeholder="descricao">
             </textarea>
             <button class="btn_fun_facts" type="submit">Submit</button>
         </div>
     </form>
     <div class="lista_fun_facts">
         {% if fun_facts %}
-            {% for fact in fun_facts %}
-            <!-- <div> -->
-                <!-- <a href="update/{{ note.id }}">
-                <img class="editar" src="{% static 'notes/img/lapis.png' %}">
-                </a> -->
-                <!-- <h3 class="card-title">{{ note.title }}</h3> -->
-            <div>
-                <p class="itens">{{fact.descricao}} ({{fact.curtidas}})</p>
-            </div>
-            <!-- </div> -->
-            {% endfor %}
+        <h1>Total de Funfacts: {{all_facts}}</h1>
+        {% for fact in fun_facts %}
+        <div class="itens">
+            {{ fact.descricao }} ({{ fact.curtidas }})
+            <form action="{% url 'like_fact' fact.id %}" method="post">
+                {% csrf_token %}
+                <button class="botao_curtir" type="submit">Curtir!</button>
+            </form>
+        </div>
+        {% endfor %}
         {% else %}
-            <p class="no-facts">Nenhum Fun Fact cadastrado</p>
+            <p class="no-facts">Não há nenhum fato interessante cadastrado.</p>
         {% endif %}
     </div>
 </main>

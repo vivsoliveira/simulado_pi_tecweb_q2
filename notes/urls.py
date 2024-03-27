@@ -9,4 +9,5 @@ urlpatterns = [
     path('tags/', views.tag_list, name='list'),
     path('tags/<int:tag_id>/', views.tag_details, name='tag_details'),
     path('fun_facts/', views.fun_facts, name='fun_facts'),
+    path('like_fact/<int:id>/', views.like_fact, name='like_fact')
 ]

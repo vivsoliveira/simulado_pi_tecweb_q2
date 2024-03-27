@@ -51,9 +51,16 @@ def tag_details(request, tag_id):
 def fun_facts(request):
     if request.method == 'POST':
         descricao = request.POST.get('descricao')
-        fact = Fact.objects.create(descricao=descricao)
+        fact = Fact.objects.create(descricao=descricao, curtidas=0)
         fact.save()
         return redirect('fun_facts')
     else:
         fun_facts = Fact.objects.all()
-        return render(request, 'notes/fun_facts.html', {'fun_facts': fun_facts})
+        all_facts = fun_facts.count()
+        return render(request, 'notes/fun_facts.html', {'fun_facts': fun_facts, 'all_facts': all_facts})
+    
+def like_fact(request, id):
+    fact = Fact.objects.get(id=id)
+    fact.curtidas += 1
+    fact.save()
+    return redirect('fun_facts')
