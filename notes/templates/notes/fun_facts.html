@@ -18,18 +18,18 @@
             <button class="btn_fun_facts" type="submit">Submit</button>
         </div>
     </form>
-    <div class="card-container">
+    <div class="lista_fun_facts">
         {% if fun_facts %}
             {% for fact in fun_facts %}
-            <div class="card">
+            <!-- <div> -->
                 <!-- <a href="update/{{ note.id }}">
                 <img class="editar" src="{% static 'notes/img/lapis.png' %}">
                 </a> -->
                 <!-- <h3 class="card-title">{{ note.title }}</h3> -->
-                <div class="card-content">
-                <p>{{fact.descricao}}</p>
-                </div>
+            <div>
+                <p class="itens">{{fact.descricao}} ({{fact.curtidas}})</p>
             </div>
+            <!-- </div> -->
             {% endfor %}
         {% else %}
             <p class="no-facts">Nenhum Fun Fact cadastrado</p>

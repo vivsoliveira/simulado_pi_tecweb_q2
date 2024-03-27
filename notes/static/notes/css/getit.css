@@ -395,3 +395,13 @@ th {
   color: black;
   transition: background-color 0.3s;
 }
+.lista_fun_facts{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+.itens{
+  margin: 0.3rem;
+  font-size: 10px;
+}
